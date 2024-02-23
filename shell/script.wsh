@@ -1,0 +1,5 @@
+echo "Testing batch mode"
+ls
+pwd
+cd ..
+pwd

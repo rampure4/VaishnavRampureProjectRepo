@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Add Course</title>
+</head>
+    <body>
+        <div class="entity-form">
+            <form action="/add-course/" method="POST" autocomplete="off">
+                <h1><b>Add New Course</b></h1>
+                {% csrf_token %}
+                <div class="inputs">
+                    <label for="course_dpt">Course Department</label>
+                    <p><input type="text" id="course_dpt" name="course_dpt" required></p>
+                    <label for="course_num">Course Number</label>
+                    <p><input type="text" id="course_num" name="course_num" required></p>
+                    <label for="course_descr">Course Description</label>
+                    <p><input type="text" id="course_descr" name="course_descr"></p>
+                </div>
+                <div class="form-buttons">
+                    <button class="btn1 mt-1" type="submit" name="add_course">Add</button>
+                    <button class="btn1 mt-1" type="submit" formmethod="get" formaction="/courses/" name="cancel" formnovalidate>Cancel</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

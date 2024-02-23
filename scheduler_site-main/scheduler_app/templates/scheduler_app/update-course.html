@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <title>Manage {{ course.name }}</title>
+    </head>
+    <body>
+        <div class="entity-form">
+            <form action="/courses/" method="POST" autocomplete="off">
+                <h1>{{ course.name }}</h1>
+                {% csrf_token %}
+                <div class="inputs">
+                    {% if user.get_account_type_display == 'Instructor' %}
+                    <label for="course_descr">Description</label>
+                    <p><input type="text" id="course_descr" name="course_descr" placeholder="Description" value="{{ course.description }}" readonly></p>
+                    {% endif %}
+                    {% if user.get_account_type_display == 'Supervisor' %}
+                    <h6>Manage Course Users</h6>
+                    <label for="course_descr">Description</label>
+                    <p><input type="text" id="course_descr" name="course_descr" placeholder="Description" value="{{ course.description }}"></p>
+                    <table class="manage-course-table">
+                        <tr>
+                            <td>
+                                <label for="add-user">Add a user</label>
+                            </td>
+                            <td>
+                                <select name="add_user" id="add_user">
+                                    <option disabled selected value>Select a user</option>
+                                    {% for user in user_list %}
+                                        <option value="{{ user.email }}">{{ user.get_account_type_display }}: {{ user.email }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="remove_user">Remove a user</label>
+                            </td>
+                            <td>
+                                <select name="remove_user" id="remove_user">
+                                    <option disabled selected value>Select a user</option>
+                                    {% for user in course_users %}
+                                        <option value="{{ user.email }}">{{ user.get_account_type_display }}: {{ user.email }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <h6>Add Course Section</h6>
+                    <table class="manage-course-table">
+                        <tr>
+                            <td>
+                                <label for="section_type">Section type</label>
+                            </td>
+                            <td>
+                                <select name="section_type" id="section_type">
+                                    <option disabled selected value>Section type</option>
+                                    {% for type in section_types %}
+                                        <option value="{{ type }}">{{ type }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="section_number">Section number</label>
+                            </td>
+                            <td>
+                                <input type="text" id="section_number" name="section_number" maxlength="3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="section_start">Starting time</label>
+                            </td>
+                            <td>
+                                <input type="time" id="section_start" name="section_start">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="section_end">Ending time</label>
+                            </td>
+                            <td>
+                                <input type="time" id="section_end" name="section_end">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="section_days">Meeting pattern</label>
+                            </td>
+                            <td>
+                                <select name="section_days" id="section_days">
+                                    <option disabled selected value>Meeting pattern</option>
+                                    {% for pattern in meeting_days %}
+                                        <option value="{{ pattern }}">{{ pattern }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <h6>Remove Course Section</h6>
+                    <table class="manage-course-table">
+                        <tr>
+                            <td>
+                                <label for="remove_section">Section</label>
+                            </td>
+                            <td>
+                                <select name="remove_section" id="remove_section">
+                                    <option disabled selected value>Select a section</option>
+                                    {% for section in course.section_set.all %}
+                                        <option value="{{ section }}">{{ section }}: {{ section.user }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    {% endif %}
+                    <h6>Add User to Section (existing user will be overridden)</h6>
+                    <table class="manage-course-table">
+                        <tr>
+                            <td>
+                                <label for="to_sec_num">Section</label>
+                            </td>
+                            <td>
+                                <select name="to_sec_num" id="to_sec_num">
+                                    <option disabled selected value>Select a section</option>
+                                    {% for section in course.section_set.all %}
+                                        <option value="{{ section }}">{{ section }}: {{ section.user }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="to_sec_user">Section</label>
+                            </td>
+                            <td>
+                                <select name="to_sec_user" id="to_sec_user">
+                                    <option disabled selected value>Select a user</option>
+                                    {% for user in course_users %}
+                                        <option value="{{ user.email }}">{{ user.get_account_type_display }}: {{ user.email }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <h6>Remove User from Section</h6>
+                    <table class="manage-course-table">
+                        <tr>
+                            <td>
+                                <label for="from_sec_num">Section</label>
+                            </td>
+                            <td>
+                                <select name="from_sec_num" id="from_sec_num">
+                                    <option disabled selected value>Select a section</option>
+                                    {% for section in course.section_set.all %}
+                                        {% if section.user != None %}
+                                            <option value="{{ section }}">{{ section }}: {{ section.user }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-buttons">
+                    <button class="btn1 mt-1" type="submit" formmethod="post" formaction="/update-course/{{ course.name }}" name="update_course">Save</button>
+                    <button class="btn1 mt-1" type="submit" formmethod="get" formaction="/courses/">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

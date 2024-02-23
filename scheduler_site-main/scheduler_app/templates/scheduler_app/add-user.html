@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Add User</title>
+</head>
+    <body>
+        <div class="entity-form">
+            <form action="/add-user/" method="POST" autocomplete="off" id="userform">
+                <h1><b>Add New User</b></h1>
+                {% csrf_token %}
+                <div class="inputs">
+                    <label for="email">User email</label>
+                    <p><input type="text" id="email" name="email" placeholder="Email" required></p>
+                    <label for="password">User password</label>
+                    <p><input type="text" id="password" name="password" placeholder="Temporary password" required></p>
+                    <label for="type">User account type</label>
+                    <select name="type" id="type" form="userform">
+                        <option value="SU">Supervisor</option>
+                        <option value="IN">Instructor</option>
+                        <option value="TA">TA</option>
+                    </select><br/>
+                </div>
+                <div class="form-buttons">
+                    <button class="btn1 mt-1" type="submit" name="add_user">Add</button>
+                    <button class="btn1 mt-1" type="submit" formmethod="get" formaction="/users/" name="cancel" formnovalidate>Cancel</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
