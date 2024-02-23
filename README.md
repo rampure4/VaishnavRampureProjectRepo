@@ -1,3 +1,10 @@
+Vaishnav Rampure's Professional Portfolio
+
+
+Introduction
+Hello! I'm Vaishnav Rampure, a senior at the University of Wisconsin–Madison. With a passion for technology and innovation, I am eagerly looking to start my career in Software Engineering or Data Engineering. Throughout my college career, I have developed a strong foundation in programming, problem-solving, and project management. I am excited to leverage my skills in a dynamic team environment to contribute to impactful projects
+
+
 Minesweeper 12/2020 – 12/2020
 -  Assembled a Minesweeper game in Java, implementing a Graphical User Interface for an engaging user experience.
 - Utilized object-oriented programming principles to create a robust and interactive game with features like grid
