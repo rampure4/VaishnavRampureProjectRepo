@@ -17,16 +17,15 @@ development, which increased code integration efficiency by 15%.
 operations.
 - Devised a Python application for educational resource management, automating TA-class assignments for 25+ classes
 and managing student records, enhancing institutional resource allocation.
-## Covid-19 Death Predictor							               	        10/2023-10/2023
-- Engineered a regression model using PyTorch accurately predicting COVID-19 related deaths across numerous Wisconsin census tracts, leveraging complex demographic and health data.
-- Processed and analyzed over 1.5 million data points from the Wisconsin Department of Health Services.
-- Directed the validation of the model against a rigorous testing dataset, securing a prediction accuracy rate exceeding 95%, thereby providing critical insights for public health decision-making.
-
 ## Escape Room 06/2023 – 08/2023
 - Crafted an "Escape Room" game using Unity, focusing on complex puzzle mechanics in C# and employing design
 patterns for efficient game state management and event-driven gameplay.
 - Implemented advanced rendering techniques in Unity to enhance graphics, resulting in a 40% increase in player
 engagement, optimizing overall performance and user experience.
+## Covid-19 Death Predictor							               	        10/2023-10/2023
+- Engineered a regression model using PyTorch accurately predicting COVID-19 related deaths across numerous Wisconsin census tracts, leveraging complex demographic and health data.
+- Processed and analyzed over 1.5 million data points from the Wisconsin Department of Health Services.
+- Directed the validation of the model against a rigorous testing dataset, securing a prediction accuracy rate exceeding 95%, thereby providing critical insights for public health decision-making.
 ## Custom Unix Shell 02/2024 - 02/2024
 - Developed a Unix-like shell in C, featuring command execution, history management, variable substitution, and
 environment variable management.
