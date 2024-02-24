@@ -34,5 +34,5 @@ programming.
 •	Engineered a regression model using PyTorch accurately predicting COVID-19 related deaths across numerous Wisconsin census tracts, leveraging complex demographic and health data.
 •	Processed and analyzed over 1.5 million data points from the Wisconsin Department of Health Services.
 •	Directed the validation of the model against a rigorous testing dataset, securing a prediction accuracy rate exceeding 95%, thereby providing critical insights for public health decision-making.
-![image](https://github.com/rampure4/VaishnavRampureProjectRepo/assets/140974964/ce4b4332-4993-4c96-b230-0c45a917de21)
+
 
