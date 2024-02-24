@@ -31,8 +31,8 @@ software development.
 programming.
 
 ## Covid-19 Death Predictor							               	        10/2023-10/2023
-•	Engineered a regression model using PyTorch accurately predicting COVID-19 related deaths across numerous Wisconsin census tracts, leveraging complex demographic and health data.
-•	Processed and analyzed over 1.5 million data points from the Wisconsin Department of Health Services.
-•	Directed the validation of the model against a rigorous testing dataset, securing a prediction accuracy rate exceeding 95%, thereby providing critical insights for public health decision-making.
+- Engineered a regression model using PyTorch accurately predicting COVID-19 related deaths across numerous Wisconsin census tracts, leveraging complex demographic and health data.
+- Processed and analyzed over 1.5 million data points from the Wisconsin Department of Health Services.
+- Directed the validation of the model against a rigorous testing dataset, securing a prediction accuracy rate exceeding 95%, thereby providing critical insights for public health decision-making.
 
 
